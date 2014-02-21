@@ -1,11 +1,11 @@
 Phase1-COS
 ==========
 
-Members
-P le Roux
-C Moodley
-C Mphabantshi
-B Muller
-M Shika
-G Smit
+Members<br>
+P le Roux<br>
+C Moodley<br>
+C Mphabantshi<br>
+B Muller<br>
+M Shika<br>
+G Smit<br>
 H Watkins
