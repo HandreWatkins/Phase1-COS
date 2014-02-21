@@ -1,0 +1,38 @@
+git config --global http.proxy "http://cache1.ip.ac.za:8080"
+git config --global http.proxy "http://137.215.6.50:8080"
+
+
+Requirements Doc
+	Vision: Main purpose of System
+	Scope: Use Case diagram with specialization and core functional requirements
+	Exclusions: 
+	Prioritisation: Critical | Important | Nice-To-Have
+	
+For leave use cases
+	- Pre & post conditions (Precondition for when services will not be available | Postcondition which holds after a service has been provided)
+	- Functional requirements (include/extended)
+	- Sequence / activity diagrams | state chart
+	- class diagrams for request/result objects (input/output)
+	
+	Domain Objects
+		- Class Diagrams
+		
+	N0n-Functional requirements
+		1. Quality Requirements
+			- Performance					->	Speed of requests)
+			- Scalability					->	Number of user over a certain time factor
+			- Cost							->
+			- Accessibility (Integrability)
+			- Reliability/Availability		->	
+			- Monitorability				->	What needs to be monitored (Load, Users)
+			- Flexibility					->
+			- Security						->	What security measures are needed and their impact of system performance
+			- Auditable						->	What is audited
+			- Usability						->	Effort of the Users
+		
+		2. Access/Integration requirements
+			Specific integration requirements
+		
+		3. Architectural Constraints
+			- Coding languages
+			- Platforms
