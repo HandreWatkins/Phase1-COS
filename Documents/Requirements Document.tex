@@ -39,7 +39,7 @@
 			Handre Watkins (10115405)\\*[0.5cm]
 
 		%Version
-			V0.1\\*[0.5cm]
+			V1.0\\*[0.5cm]
 
 		%Last Modify Date
 			{\large \today} \\
@@ -60,7 +60,7 @@
 			\hline
 				Date & Author & Description & Version \\
 			\hline
-				20 Feb 2014 & MachochoShika & Skeleton and First draft & 0.1 \\
+				20 Feb 2014 & Machocho Shika & Skeleton and First draft & 0.1 \\
 			\hline
 				22 Feb 2014 & Gerhard Smit & Introduction and Scope & 0.1.1\\
 			\hline
@@ -69,15 +69,15 @@
 			\hline
 				24 Feb 2014 & Bernhard M\"uller & Functional Scope and Limitations/Exclusions	& 0.2.1\\
 			\hline
-				24 Feb 2014 & CollenMphabantshi & Functional requirements & 0.3\\
+				24 Feb 2014 & Collen Mphabantshi & Functional requirements & 0.3\\
 			\hline
 				24 Feb 2014 & Pieter Le Roux & Architecture Constraints & 0.4\\
 			\hline
-				26 Feb 2014 & MachochoShika & Completed Process Specifications & 0.5.1\\
+				26 Feb 2014 & Machocho Shika & Completed Process Specifications & 0.5.1\\
 			\hline
-				26 Feb 2014 & MachochoShika & Edited Open Issues & 0.5.2\\
+				26 Feb 2014 & Machocho Shika & Edited Open Issues & 0.5.2\\
 			\hline
-				26 Feb 2014 & MachochoShika & Added use-case diagram to section & 0.5.3 \\
+				26 Feb 2014 & Machocho Shika & Added use-case diagram to section & 0.5.3 \\
 				\phantom & \phantom & 5.2 (Functional Scope and &   \\
 				\phantom & \phantom & Limitations/Exclusions) & \\
 			\hline
@@ -87,8 +87,15 @@
 			\hline
 				26 Feb 2014 & Christopher Moodley & Quality requirements & 0.7.2\\
 			\hline
-				26 Feb 2014 & MachochoShika & Functional Scope and & 0.8\\
+				26 Feb 2014 & Machocho Shika & Functional Scope and & 0.8\\
 				\phantom & \phantom & Limitations/Exclusions & \\
+			\hline
+				27 Feb 2014 & Machocho Shika & Open Issues & 0.8.1\\
+			\hline
+				27 Feb 2014 & Pieter le Roux & Service contracts diagrams & 0.9\\
+			\hline
+				27 Feb 2014 & Bernhard M\"uller & Latex Conversion & 1.0\\
+				\phantom &\phantom & Document Finalisation & \\
 			\hline
 		\end{tabular}
 		\newpage
@@ -107,29 +114,20 @@
 			The marking system aims to provide lecturers with the opportunity to centralize and digitalize the marking process for practical assessments carried out and evaluated. The system will also allow Teaching Assistants (TAs) and Tutors to access the system during a marking session for a module, to record the marks of students onto the system, through the use of their mobile smartphones or computers. The system will also allow the student to access his or her mark at a later stage to see how much they have acquired. The aim of this system is to remove tedious paperwork and to prevent the loss of marks.
 		\section{Background}
 			This project is due to the Computer Science department of the University of Pretoria currently facing an abundance of paper work and a potential loss of mark sheets and the opportunity of utilising the COS 301 course learning opportunity for the creation of an online marking system. The system is intended to improve the marking procedures currently in place within the Computer Science department and simplify the process of processing and distributing marks as they are released. The system also provides the COS 301 students with the opportunity to learn more with regards to the procedure used for creating, designing and developing projects for businesses while also providing the University with a potentially new system that may in future be used throughout the entire university.
+		\pagebreak
 		\section{Architecture requirements}
 			\subsection{Access channel requirements}
 				\begin{description}
-					\item \tab \textsc{\bf Students – Viewing marks}
+					\item \tab \textsc{\bf Students - Viewing marks}
 					\begin{description}
-						\item \tab [$\bullet$]Access to marks through either the web interface, browser clients, 
-						\item \tab [$\bullet$] or through the application as mobile client.
+						\item \tab [$\bullet$]Access to marks through either the web interface, browser clients, or through the application as mobile client.
 						\item \tab [$\bullet$] Need to be registered for the course.
 					\end{description}
 				\end{description}
 				\begin{description}
-					\item \tab \textsc{\bf Students – Viewing marks}
+					\item \tab \textsc{\bf Tutors/TA - Entering/Modifying marks}
 					\begin{description}
-						\item \tab [$\bullet$]Access to marks through either the web interface, browser clients, 
-						\item \tab [$\bullet$] or through the application as mobile client.
-						\item \tab [$\bullet$] Need to be registered for the course.
-					\end{description}
-				\end{description}
-				\begin{description}
-					\item \tab \textsc{\bf Tutors/TA – Entering/Modifying marks}
-					\begin{description}
-						\item \tab [$\bullet$] Through the through either the web interface, browser clients,
-						\item \tab [$\bullet$] or through the application as mobile client.
+						\item \tab [$\bullet$] Either through the web interface, browser clients, or through the application as mobile client.
 						\item \tab [$\bullet$] Need to be assigned as a TA/Tutor on the system.
 					\end{description}
 				\end{description}
@@ -157,9 +155,10 @@
 				\begin{description}
 					\item \tab \textsc{\bf The CS server}
 					\begin{description}
-						\item \tab [$\bullet$]Will use the CS Database as well as the university’s student database as the Data-Tier
+						\item \tab [$\bullet$]Will use the CS Database as well as the university's student database as the Data-Tier
 					\end{description}
 				\end{description}
+			\pagebreak
 			\subsection{Quality requirements}
 				\begin{description}
 					\item \tab \textsc{\bf Performance}
@@ -171,7 +170,7 @@
 				\begin{description}
 					\item \tab \textsc{\bf Reliability}
 					\begin{description}
-						\item \tab [$\bullet$] If the system goes off-line or the mobile device cannot maintain a connection after a marking sheet has been opened, marking must still be possible, all changes will be stored locally on the device with the use of time stamps and later synced when a connection is made.
+						\item \tab [$\bullet$] If the system goes off-line or the mobile device cannot maintain a connection after a marking sheet has been opened, marking must still be possible, all changes will be stored locally on the device with the use of time stamps and later syncronised when a connection is made.
 						\item \tab [$\bullet$] The system will not be functional whilst the server is down for maintenance.
 					\end{description}
 				\end{description}
@@ -204,6 +203,7 @@
 					\end{description}
 				\end{description}
 				\begin{description}
+					\pagebreak
 					\item \tab \textsc{\bf Auditability / Monitorability}
 					\begin{description}
 						\item \tab [$\bullet$] All modifications of data on the system must be recorded in an audit log.
@@ -230,16 +230,16 @@
 					\end{description}
 				\end{description}
 			\subsection{Integration requirements}
-			The Integration channel section will cover all information in regards to the program interfacing with the multiple systems, what systems will be involved in the program and how this interfacing will be done. Integration channels refer to the endpoints that is created in the system and the interfaces and interface channels to realize this program. Integration with the multiple areas of the system will play a major part in the connection of the device, website and the database aspects.
+			The Integration channel section will cover all information in regards to the program interfacing with the multiple systems, what systems will be involved in the program and how this interfacing will be done. Integration channels refer to the endpoints that are created in the system and the interfaces and interface channels to realize this program. Integration with the multiple areas of the system will play a major part in the connection of the device, website and the database aspects.
 
 			\textbf{Integration channel}\\
-			Integration will be facilitated between the website, mobile application and databases. The database will serve as the endpoint in most of the user cases and only be seen as a middle step in the retrieval of marks form the student and lecturer side. The hosted database will be a MySQL database (as per client specification) and will have interfacing to the ALDOP to retrieve student, tutor and lecturer information. 
+			Integration will be facilitated between the website, mobile application and databases. The database will serve as the endpoint in most of the user cases and only be seen as a middle step in the retrieval of marks form the student and lecturer side. The hosted database will be a MySQL database (as per client specification) and will interface to the ALDOP to retrieve student, tutor and lecturer information. 
 
 			All applications will have internet requirements as with the mark, mark sheet and change logs will be uploaded via the internet to a local database that stores mark information. Mobile device, internet connection will be used in this regard to connect to the DNS of the local storage server. The website will be hosted in concert with the database and PHP can be used for server side data transfer.
 
-			Both the website and mobile application is required to do real time uploads to the database if internet connection can be made and will require a constant syncing of information. The information stored on the database will be accessible from both website and mobile application to view individual marks and final marks. This data will be used by the reporting tools to generate the grafts and statistical information. A failsafe must be included for the mobile application if internet connectivity is not available must the application continue until the end of the current mark sheet. This must allow that a butch upload of the marks must be done. The batch size must be no more that the size of the current mark sheet and has to be check against the timestamp that is included in the version of the database at that time.
+			Both the website and mobile application is required to do real time uploads to the database if internet connection can be made and will require a constant syncing of information. The information stored on the database will be accessible from both website and mobile application to view individual marks and final marks. This data will be used by the reporting tools to generate the graphs and statistical information. A failsafe must be included for the mobile application if internet connectivity is not available the application must continue until the end of the current mark sheet. This must allow a batch upload of the marks. The batch size must be no more than the size of the current mark sheet and has to be checked against the timestamp that is included in the version of the database at that time.
 
-			Dynamic roles will be allocated from the data interface to the ALDOP system. The marking process can only be started for lecturers and tutors login users and viewing of marks will be available to students in a personal capacity, a student can only see his or her mark. A lecturer will only be able to view that marks in a group capacity.
+			Dynamic roles will be allocated from the data interface to the ALDOP system. The marking process can only be started by lecturers and tutors. Viewing of marks will be available to students in a personal capacity, a student can only see his or her mark. A lecturer will only be able to view the marks in a group capacity.
 
 			\textbf{Protocols}\\
 The protocols include all integration tools that will be used in the development of the program. 
@@ -256,7 +256,7 @@ The protocols include all integration tools that will be used in the development
 			MySQL\\
 			ALDOP\\
 			\begin{description}
-				\item \includegraphics[width=470pt]{IntegrationDiagram}
+				\item \includegraphics[width=425pt]{IntegrationDiagram}
 			\end{description}
 			\textbf{Quality requirements}
 			\begin{description}			
@@ -265,16 +265,15 @@ The protocols include all integration tools that will be used in the development
 			\end{description}
 			\begin{description}			
 				\item \tab \textbf{\bf Security}
-				\item \tab \textsc{The interface must be secure and only interaction from a registered user via the mobile application or the website will be allowed as acceptable input. All interactions must be logged in a way that is accessible by staff but cannot be edited.}
+				\item \tab \textsc{The interface must be secure and only interaction from a registered user via the mobile application or the website will be allowed. All interactions must be logged in a way that is accessible by staff but cannot be edited.}
 			\end{description}
 			\begin{description}			
 				\item \tab \textbf{\bf Usability}
 				\item \tab \textsc{All registered personnel at the facility of IT must be able to use the website or application as long as the minimum requirements have been met.}
 				\item \tab \textsc{The user must:}
 				\begin{description}
-					\item [$\bullet$] Be a student, tutor, Teaching assistant or lecturer at the Faculty of Information technology
-					\item [$\bullet$] Have an active internet connection
-					\item [$\bullet$] Or a mobile device using android(Minimum API level to be confirmed)
+					\item [$\bullet$] Be a student, tutor, teaching assistant or lecturer at the Faculty of Information Technology
+					\item [$\bullet$] Have an active internet connection via Pc or a mobile device running android (Minimum API level to be confirmed)
 				\end{description}
 			\end{description}
 
@@ -283,17 +282,17 @@ The protocols include all integration tools that will be used in the development
 According to the client, constraints in the system exist both on the hardware and software of the application.
 
 				\textbf{Hardware Constraints}\\
-				Firstly the system needs to be able to function on any personal computer. On this type of hardware the user will access the system via a browser and internet which we will get to in the software constraints.
+				Firstly the system needs to be able to function on any personal computer. On this type of hardware the user will access the system via a browser using the internet.
  
-				The system also needs to be able to run on any and all tablets available and should also be accessible through a browser, but more likely through an Android Application.
+				The system also needs to be able to run on any tablet available and should also be accessible through a browser, but more likely through an Android Application.
 
-				Lastly, the system will need to function on a mobile phone. Older phones might only access the system from a browser, and newer smartphones should be able to access it both from a browser as well as an Android Application.
-
+				Lastly, the system will need to function on a mobile phone. Older phones might only be able to access the system from a browser, where newer smartphones should be able to access it both from a browser as well as an Android Application.\pagebreak
+				
 				\textbf{Software Constraints}\\
-				The software constraints of the system are discussed a bit more and form a larger part of the boundary that we may better understand where and how we are limited. The technologies that must be used in this system are specified as the following:
+				The software constraints of the system are discussed a bit more and form a larger part of the boundary,so that we may better understand where and how we are limited. The technologies that must be used in this system are specified as the following:
 				\begin{description}
 					\item \tab [$\bullet$] On web based systems, the application needs to function on all browsers available as well as all the versions of these browsers.
-					\item \tab [$\bullet$] Android is the only app based system that an app needs to be designed.
+					\item \tab [$\bullet$] Android is the only app based system that an app needs to be designed for.
 					\item \tab [$\bullet$] MySQL will be used as database to store all the information such as marks and other student related information.
 					\item \tab [$\bullet$] GitHub will be used for a web based repository to store all of the information regarding the project.
 					\item \tab [$\bullet$] LDAP (Lightweight Directory Access Protocol) will be used as a user database that requires only a single sign on password.
@@ -303,6 +302,7 @@ According to the client, constraints in the system exist both on the hardware an
 					\item \tab [$\bullet$] UTF-8 must be used for encoding to keep information safe and secure.
 					\item \tab [$\bullet$] Audit trials must be followed for all access made to the system.	
 				\end{description}
+			\pagebreak
 		\section{Functional requirements}
 			\subsection{Introduction}
 			The system will require the user to be a Student, Teaching Assistant, Lecturer or HOD at the Department of Computer Science at the University of Pretoria. It will allow the students to review their progress of marks obtained from practical assignments and progress marks of the semester as well. The Teaching Assistants will be allowed to mark the students during a practical and upload the marks and then to be added to the student’s mark list, the marks are also editable by the TA provided the mark sheet is not locked by the Lecturer. The Lecturer will be able to set up a practical and mark sheet that can be edited during the allocated time of the practical, the Lecturer will be able to review the student’s submissions and the marks and make changes where it is required. The HOD will be able to add and remove Lecturers from modules provided they are employed at the Department of Computer Science; he/she will have access to any module and review the content of any practical. Any changes made will be updated to the audit log.
@@ -324,6 +324,7 @@ According to the client, constraints in the system exist both on the hardware an
 							\item \tab [$\bullet$] The system strictly allows for mark-inputting by markers.
 						\end{description}
  					\end{description}
+ 				\pagebreak
 				\textsc{\bf Limitations}
 					\begin{description}
 						\item The following limitations are made explicit:
@@ -333,9 +334,12 @@ According to the client, constraints in the system exist both on the hardware an
 							\item \tab [$\bullet$] The lecturer cannot add students not registered with the university to the system.	
 							\item \tab [$\bullet$] Lecturers cannot view module reports for modules they do not lecture.
 						\end{description}
-						\item \tab \textsc{\bf Use-Case Diagram}
-                		\item \includegraphics[width=350pt]{ScopeDiagram}
+ 					\end{description}
+					\textsc{\bf Use-Case Diagram}
+					\begin{description}
+                		\item \includegraphics[width=300pt]{ScopeDiagram}
                 	\end{description}
+            \pagebreak
 			\subsection{Required functionality}
 				The following system processes describe the functional requirements of the system.
 				\begin{enumerate}
@@ -430,6 +434,7 @@ According to the client, constraints in the system exist both on the hardware an
 					\end{enumerate}
 					\includegraphics[width=380pt]{requiredFunc9}\\
 					\includegraphics[width=380pt]{requiredFunc9_1}
+					\pagebreak
 					\item To alter students’ marks on the system
 					\begin{enumerate}
 						\item Elaboration - This process describes a marker altering a student mark on the system after having already recorded a mark for the student. There shall be an audit book that will keep records of every edit that is being done on the mark sheet(s). It will only record changes that happens when the marks are being edited on the mark sheet(s).
@@ -491,6 +496,7 @@ According to the client, constraints in the system exist both on the hardware an
 					\end{enumerate}
 					\includegraphics[width=380pt]{requiredFunc14}
 				\end{enumerate}
+			\pagebreak
 			\subsection{Use case prioritisation}
 				\textsc{\bf Critical}
 				\begin{description}
@@ -547,7 +553,35 @@ According to the client, constraints in the system exist both on the hardware an
 					\item \tab [$\bullet$] The user needs to have permission for that specific user type to use user-specific functions in the system.
 					\item \tab [$\bullet$] The user needs to be automatically signed out after a set period of time when the user is inactive. 
 				\end{description}
-				\textbf{Request and Results Data Structures}
+				\pagebreak
+				\textbf{Request and Results Data Structures}\\
+				The data structures that are being used in the system are closely linked and interleaved to form the structure of the system and give it the most core of functionality. The system will need to receive some form of input from the users to process and generate the expected output.\\
+				The requests of the system will be the basic input that will need to be provided by the users, whether it is the students, tutors or lecturers. A few basic and fundamental inputs will be:
+				\begin{description}
+					\item \tab [$\bullet$] Students will have to provide their username and password to LDAP to gain access to the system.
+					\item \tab [$\bullet$] Also students will have to choose which mark to view and in what format it should be viewed.
+					\item \tab [$\bullet$] Tutors will also have to provide their specially assigned username and password to LDAP to access the system.
+					\item \tab [$\bullet$] The tutors will need to provide the current student’s student number that is being marked, along with the allocated mark for the determined practical.
+					\item \tab [$\bullet$] The tutors need to provide a reason for changing the mark of a student along with the changed mark.
+					\item \tab [$\bullet$] The lecturers will once again need to provide their username and password to LDAP to gain access to the system.
+					\item \tab [$\bullet$] The lecturers will have to provide marks when adding and editing them along with the student’s student number and what individual mark needs to be altered.
+					\item \tab [$\bullet$] The lecturer will also need a newly added student’s information to add new students as well as removing them from the system.
+					\item \tab [$\bullet$] The head of department will once again need to provide their username and password to LDAP to gain access to the system.
+					\item \tab [$\bullet$] The head of department will have to provide marks when adding and editing them along with the student’s student number and what individual mark needs to be altered.
+					\item \tab [$\bullet$] The head of department will also need a newly added student’s information to add new students as well as removing them from the system.
+					\item \tab [$\bullet$] The head of department needs to provide a time and location to create a practical and add it to the system.
+					\item \tab [$\bullet$] The head of department will have to provide details when he/she wants to add a new feature to the system.
+					\item \tab [$\bullet$] The head of department will have to provide the tutor details that needs to be added or removed from the system.
+				\end{description}
+The result of the system are much simpler as it produces more or less what the user wants to achieve from the system. The results of the system will be:
+				\begin{description}
+					\item \tab [$\bullet$] The student will be able to view his/her marks individually as well as calculated together.
+					\item \tab [$\bullet$] The tutor will be able to view the marks of the student, and also know if the alteration and adding of marks was successful.
+					\item \tab [$\bullet$] The lecturer will be able to view all of the database information of the students and an audit trail of any alteration of marks on the system.
+					\item \tab [$\bullet$] The head of department will be able to view all information regarding the marks and students as well as an audit trail for alteration of marks.
+					\item \tab [$\bullet$] The head of department will also receive reports regarding the system in a timely manner.
+				\end{description}
+				\includegraphics[width=400pt]{UseCaseServiceContracts}
 			\subsection{Process specification}
 			Below are the specific process requirements needed for some of the use-cases:\\
 			\textsc{\bf Signing In}
@@ -585,6 +619,7 @@ According to the client, constraints in the system exist both on the hardware an
 						\item \tab \textsc{Lecturer should be valid lecture at the university.}
 					\end{description}
 				\end{description}
+				\pagebreak
 				\begin{description}
 					\item \tab \textsc{Basic Sequence:}
 					\begin{enumerate}
@@ -639,6 +674,7 @@ According to the client, constraints in the system exist both on the hardware an
 				\end{description}
 			\subsection{Domain Objects}
 			\includegraphics[width=470pt]{domainObject}
+		\pagebreak
 		\section{Open Issues}
 		\textbf{Requirements still to be specified}\\
 		No further requirements need be specified.\\
@@ -655,13 +691,14 @@ According to the client, constraints in the system exist both on the hardware an
 		\begin{description}			
 			\item \tab [$\bullet$] TA’s and Tutors can alter student marks by providing reasons when they do so. The client has indicated that Lecturers can decide on the privileges assigned to TAs and Tutors. However, TAs and Tutors only have two core roles which define their purpose on the system; recording student marks and altering/updating studenft marks(with reason). What privileges can the Lecturer then decide on, as removing any of these roles from a TA or Tutor possibly defeats the role of a TA or Tutor on the system, which in turn possibly defeats the client’s purpose for the system, which is to have the TAs and Tutors deals with as much of the mark recording as possible.
 		\end{description}
+		\pagebreak
 		\section{Glossary}
 		TA - Teaching Assistant.\\
 		HOD - Head of Department.\\
 		COS - Computer Science.\\
 		COS301 - Software Engineering module.\\
 		Auto Marking - Marking is done by a third party application, without any human insight.\\
-		Markers - Lect-rers, Tutors and Teaching Assistants.\\
+		Markers - Lecturers, Tutors and Teaching Assistants.\\
 		SOAP - Simple Object Access Protocol.\\
 		Audit log - A log keeping track of all updates and modifications to marks and the system itself.\\
 		Android - Operating System used on smartphones designed by Google.\\
