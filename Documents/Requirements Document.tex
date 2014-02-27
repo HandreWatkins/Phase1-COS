@@ -230,7 +230,79 @@
 					\end{description}
 				\end{description}
 			\subsection{Integration requirements}
-			\subsection{Architecture requirements}		
+			The Integration channel section will cover all information in regards to the program interfacing with the multiple systems, what systems will be involved in the program and how this interfacing will be done. Integration channels refer to the endpoints that is created in the system and the interfaces and interface channels to realize this program. Integration with the multiple areas of the system will play a major part in the connection of the device, website and the database aspects.
+
+			\textbf{Integration channel}\\
+			Integration will be facilitated between the website, mobile application and databases. The database will serve as the endpoint in most of the user cases and only be seen as a middle step in the retrieval of marks form the student and lecturer side. The hosted database will be a MySQL database (as per client specification) and will have interfacing to the ALDOP to retrieve student, tutor and lecturer information. 
+
+			All applications will have internet requirements as with the mark, mark sheet and change logs will be uploaded via the internet to a local database that stores mark information. Mobile device, internet connection will be used in this regard to connect to the DNS of the local storage server. The website will be hosted in concert with the database and PHP can be used for server side data transfer.
+
+			Both the website and mobile application is required to do real time uploads to the database if internet connection can be made and will require a constant syncing of information. The information stored on the database will be accessible from both website and mobile application to view individual marks and final marks. This data will be used by the reporting tools to generate the grafts and statistical information. A failsafe must be included for the mobile application if internet connectivity is not available must the application continue until the end of the current mark sheet. This must allow that a butch upload of the marks must be done. The batch size must be no more that the size of the current mark sheet and has to be check against the timestamp that is included in the version of the database at that time.
+
+			Dynamic roles will be allocated from the data interface to the ALDOP system. The marking process can only be started for lecturers and tutors login users and viewing of marks will be available to students in a personal capacity, a student can only see his or her mark. A lecturer will only be able to view that marks in a group capacity.
+
+			\textbf{Protocols}\\
+The protocols include all integration tools that will be used in the development of the program. 
+			\begin{description}
+				\item \tab [$\bullet$] FTP	
+				\item \tab [$\bullet$] SOAP
+				\item \tab [$\bullet$] HTTPS
+			\end{description}
+			\textbf{API}
+			\begin{description}			
+				\item API (Application Programming Interface)\\
+			\end{description}
+			Android\\
+			MySQL\\
+			ALDOP\\
+			\begin{description}
+				\item \includegraphics[width=470pt]{IntegrationDiagram}
+			\end{description}
+			\textbf{Quality requirements}
+			\begin{description}			
+				\item \tab \textbf{\bf Performance}
+				\item \tab \textsc{The interaction with the database must be able to host all students, tutors, teaching assistance within the IT faculty. This integration must be done so that there is no decrease in performance}
+			\end{description}
+			\begin{description}			
+				\item \tab \textbf{\bf Security}
+				\item \tab \textsc{The interface must be secure and only interaction from a registered user via the mobile application or the website will be allowed as acceptable input. All interactions must be logged in a way that is accessible by staff but cannot be edited.}
+			\end{description}
+			\begin{description}			
+				\item \tab \textbf{\bf Usability}
+				\item \tab \textsc{All registered personnel at the facility of IT must be able to use the website or application as long as the minimum requirements have been met.}
+				\item \tab \textsc{The user must:}
+				\begin{description}
+					\item [$\bullet$] Be a student, tutor, Teaching assistant or lecturer at the Faculty of Information technology
+					\item [$\bullet$] Have an active internet connection
+					\item [$\bullet$] Or a mobile device using android(Minimum API level to be confirmed)
+				\end{description}
+			\end{description}
+
+			\subsection{Architecture constraints}
+				The constraints regarding the architecture of the system gives us a boundary or 	barrier outlining the system, and specifying our design within certain limitations.
+According to the client, constraints in the system exist both on the hardware and software of the application.
+
+				\textbf{Hardware Constraints}\\
+				Firstly the system needs to be able to function on any personal computer. On this type of hardware the user will access the system via a browser and internet which we will get to in the software constraints.
+ 
+				The system also needs to be able to run on any and all tablets available and should also be accessible through a browser, but more likely through an Android Application.
+
+				Lastly, the system will need to function on a mobile phone. Older phones might only access the system from a browser, and newer smartphones should be able to access it both from a browser as well as an Android Application.
+
+				\textbf{Software Constraints}\\
+				The software constraints of the system are discussed a bit more and form a larger part of the boundary that we may better understand where and how we are limited. The technologies that must be used in this system are specified as the following:
+				\begin{description}
+					\item \tab [$\bullet$] On web based systems, the application needs to function on all browsers available as well as all the versions of these browsers.
+					\item \tab [$\bullet$] Android is the only app based system that an app needs to be designed.
+					\item \tab [$\bullet$] MySQL will be used as database to store all the information such as marks and other student related information.
+					\item \tab [$\bullet$] GitHub will be used for a web based repository to store all of the information regarding the project.
+					\item \tab [$\bullet$] LDAP (Lightweight Directory Access Protocol) will be used as a user database that requires only a single sign on password.
+					\item \tab [$\bullet$] Python programming language should be used to create the system.
+					\item \tab [$\bullet$] Django must be used as a web framework, which is written in python, to complete the web based systems.
+					\item \tab [$\bullet$] SOAP (Simple Object Access Protocol) will be used as interface for exchanging information on the web services and across the network.
+					\item \tab [$\bullet$] UTF-8 must be used for encoding to keep information safe and secure.
+					\item \tab [$\bullet$] Audit trials must be followed for all access made to the system.	
+				\end{description}
 		\section{Functional requirements}
 			\subsection{Introduction}
 			The system will require the user to be a Student, Teaching Assistant, Lecturer or HOD at the Department of Computer Science at the University of Pretoria. It will allow the students to review their progress of marks obtained from practical assignments and progress marks of the semester as well. The Teaching Assistants will be allowed to mark the students during a practical and upload the marks and then to be added to the student’s mark list, the marks are also editable by the TA provided the mark sheet is not locked by the Lecturer. The Lecturer will be able to set up a practical and mark sheet that can be edited during the allocated time of the practical, the Lecturer will be able to review the student’s submissions and the marks and make changes where it is required. The HOD will be able to add and remove Lecturers from modules provided they are employed at the Department of Computer Science; he/she will have access to any module and review the content of any practical. Any changes made will be updated to the audit log.
@@ -265,6 +337,160 @@
                 		\item \includegraphics[width=350pt]{ScopeDiagram}
                 	\end{description}
 			\subsection{Required functionality}
+				The following system processes describe the functional requirements of the system.
+				\begin{enumerate}
+					\item Downloading mobile application and installation
+					\begin{enumerate}
+						\item Elaboration - Users shall be able to download the mobile version of this application from Google play store. The application is free.
+						\item Importance - 4.
+						\item Dependency level - Without downloading the application, users cannot make use of the applications functionality. Hence this process is a critical process.
+						\item Pre-condition - User does not have mobile application.
+						\item Post-condition - User has mobile application downloaded and installed on their mobile phones.
+						\item Requestor - Client
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc1}
+					\item Online access(WEB APPLICATION)
+					\begin{enumerate}
+						\item Elaboration - Users shall be able to access online the web version of MMS from the specific link provided e.g. www.mms.up.ac.za
+						\item Importance - 4.
+						\item Dependency level - Without having access to internet, users cannot make use of the web application functionality. Hence this process is a critical process.
+						\item Pre-condition - User does not have internet access on his/her computing device.
+						\item Post-condition - User has internet access on their computing devices.
+						\item Requestor - Client
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc2}
+					\item Signing In
+					\begin{enumerate}
+						\item Elaboration - Users of this system should be able to sign in in order to verify them as valid users of the system and allow them their given privileges on the system.
+						\item Importance - 4.
+						\item Dependency level - Without this process, users of this system will not have access to the system, which will render the system unusable.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc3}
+					\item Signing out
+					\begin{enumerate}
+						\item Elaboration - Users of this system should be able to sign put in order to end their active usage session of the system for security reasons.
+						\item Importance - 4.
+						\item Dependency level - Without this process, users will not be able to sign out of their active sessions, which poses a great threat to the security of the system.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc4}
+					\item Adding lecturers to the system and assigning them to relevant modules.
+					\begin{enumerate}
+						\item Elaboration - This process will allow the HOD to add lecturers in his department to the system and validate them as lecturers for their respective modules.
+						\item Importance - 4.
+						\item Dependency level - Without this feature, the entire system is unusable as lecturers cannot assign TAs and tutors to mark students using the system, hence the client request is not satisfied.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc5}
+					\item Reviewing the system.
+					\begin{enumerate}
+						\item Elaboration - This process will allow the HOD and lecturers to view user activity on the system by reviewing audit logs to ensure that no misuse of the system occurs. It will also allow the HOD and lecturers to follow up on cases that may arise relating to student marks by reviewing user activity on the audit logs.
+						\item Importance - 4.
+						\item Dependency level - Given that no misuse occurs, this feature does not prove fatal to the operation of the system. However, Murphy’s Law suggests that if anything can go wrong, it will, hence it’s the auditability, security and effectiveness of the system may rely heavily on this feature.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc6}
+					\item Assigning markers to practical sessions and assigning students to markers.
+					\begin{enumerate}
+						\item Elaboration - This process allows lecturers to assign markers to marking sessions and to assign that marker a selected group of students.
+						\item Importance - 4.
+						\item Dependency level - Without this feature, the system becomes ineffective as there are no markers assigned to record student marks.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc7}
+					\item To lock and finalize mark sheets for marking sessions once the session is complete.
+					\begin{enumerate}
+						\item Elaboration - This process involves the system automatically locking a mark-sheet after practical session is compete, or the lecturer locking the mark-sheet himself/herself.
+						\item Importance - 3.
+						\item Dependency level - Without this process, markers may alter mark sheets whenever they wish, even long after the assessment was assessed, which poses security and validity threats.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc8}
+					\item To record students’ marks onto the system
+					\begin{enumerate}
+						\item Elaboration - This process involves the marker entering a student’s mark into the system.
+						\item Importance - 4.
+						\item Dependency - Without this process, the purpose of the system is defeated.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc9}\\
+					\includegraphics[width=380pt]{requiredFunc9_1}
+					\item To alter students’ marks on the system
+					\begin{enumerate}
+						\item Elaboration - This process describes a marker altering a student mark on the system after having already recorded a mark for the student. There shall be an audit book that will keep records of every edit that is being done on the mark sheet(s). It will only record changes that happens when the marks are being edited on the mark sheet(s).
+						\item Importance - 3.
+						\item Dependency level - This process allows markers to correct a student’s mark which has been incorrectly recorded on the system. As the client wishes that lecturers have minimal to zero interaction with the mark-recording-process, this process is rather necessary.
+						\item Pre-condition - This feature on the system will be properly implemented using appropriate technology.
+						\item Post-condition - This feature functions as it should with no defects or short-comings.
+						\item Requestor - Client.
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc10}\\
+					\includegraphics[width=380pt]{requiredFunc10_1}
+					\item Import/Export .csv files
+					\begin{enumerate}
+						\item Elaboration – Users of this system shall be able to import or export marks to and from the system in csv format.
+						\item Importance - 2
+						\item Dependency level - The system is not highly dependent on this process, and can still function to its purpose without this process.
+						\item Pre-condition - 
+						\begin{enumerate}
+							\item User wishes to download mark sheet in csv format.
+							\item User wishes to upload mark sheet in csv format.
+						\end{enumerate}
+						\item Post-condition -
+						\begin{enumerate}
+							\item User successfully downloaded mark sheet in csv format.
+							\item User successfully uploaded marks in csv format.
+						\end{enumerate}
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc11}
+					\item To view marks on the system
+					\begin{enumerate}
+					\item Elaboration – This process describes students, lecturers, and the HOD being able to view a student’s marks on the system. Student marks should be visible as individual and cumulative marks till any given point in time. These marks should also have statistical measures and graphical representations such as graphs.
+					\item Importance – 4
+					\item Dependency level – Without this process, the purpose of the system is defeated.
+					\item Pre-condition – This feature on the system will be properly implemented using appropriate technology.
+					\item Post-condition – This feature functions as it should with no defects or short-comings.
+					\item Requestor – Client.
+
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc12}\\
+					\includegraphics[width=380pt]{requiredFunc12_1}
+					\item Search ability
+					\begin{enumerate}
+					\item The system shall be able to allow users to search using key words such as name, surname and students number. The keeps the history of what has been searched for on that session.
+					\item Importance – 2
+					\item Dependency level – This feature will make the system more easy to use and simple to use.
+					\item Pre-condition – nothing has been typed on the search bar, no search is made.
+					\item Post-condition – keyword has been typed on the search bar, the system automatically filters content with relevance to the keyword.
+					\item Requestor – Client
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc13}
+					\item Generating report
+					\begin{enumerate}
+					\item HODs and Lectures shall be able to generate report on their modules at any level of precedence. The report is in pdf format and it contains graphs and other necessary records about the module.
+					\item Importance – 3
+					\item Dependency level – this feature is very useful since it adds value to the system of producing clear indication of what is happening on modules to lectures and HODs.
+					\item Pre-condition – no request has been made on any level of precedence.
+					\item Post-condition – request has been made of the report at some level of precedence, it will be generated in pdf format.
+					\item Requestor – Client
+					\end{enumerate}
+					\includegraphics[width=380pt]{requiredFunc14}
+				\end{enumerate}
 			\subsection{Use case prioritisation}
 				\textsc{\bf Critical}
 				\begin{description}
@@ -300,6 +526,28 @@
 					\item \tab [$\bullet$] Auto complete student number.
 				\end{description}
 			\subsection{Use case/Services contracts}
+				\textbf{Pre-conditions:}\\
+				A few conditions must be met before any of the users can access and use the system.
+				\begin{description}
+					\item \tab [$\bullet$] The user must have a functioning device capable of running the system. Devices may be a personal computer, a tablet or a mobile phone.
+					\item \tab [$\bullet$] The user must work on a software platform capable of running the system. That would be all the web browsers or Android operating system to run the application.
+					\item \tab [$\bullet$] The user must have network or internet access.
+					\item \tab [$\bullet$] Students may only view their own marks and information.
+					\item \tab [$\bullet$] If the user of the system is a student, the student must be registered for the course and have his/ her own user name and password to view their marks.
+					\item \tab [$\bullet$] If the user is a tutor, they have to be granted special permission to access and modify the information on the system.
+					\item \tab [$\bullet$] Tutors may only change and add marks for the practical session they are booked to mark.
+					\item \tab [$\bullet$] Tutors need to receive permission from the lecturers or Head of Department to change marks.
+					\item \tab [$\bullet$] The lecturers also need a username and password granting special permission to modify and view all of the information.
+					\item \tab [$\bullet$] The Head of Department will also need a username and password that has permission to alter the information all across the system.
+				\end{description}
+				\textbf{Post-conditions:}\\
+				Post-conditions are the conditions that need to hold after access has been granted to the system to keep on using the system.
+				\begin{description}
+					\item \tab [$\bullet$] The user needs to have fixed access to the network or internet to keep on using the system.
+					\item \tab [$\bullet$] The user needs to have permission for that specific user type to use user-specific functions in the system.
+					\item \tab [$\bullet$] The user needs to be automatically signed out after a set period of time when the user is inactive. 
+				\end{description}
+				\textbf{Request and Results Data Structures}
 			\subsection{Process specification}
 			Below are the specific process requirements needed for some of the use-cases:\\
 			\textsc{\bf Signing In}
@@ -390,6 +638,33 @@
 					\includegraphics[keepaspectratio=true]{BasicSequence4}
 				\end{description}
 			\subsection{Domain Objects}
+			\includegraphics[width=470pt]{domainObject}
 		\section{Open Issues}
+		\textbf{Requirements still to be specified}\\
+		No further requirements need be specified.\\
+		\vspace{0.05cm}\\
+		\textbf{Clarification Required}\\
+		The following points still need to be clarified with the client:
+		\begin{description}
+			\item \tab [$\bullet$] Regarding the pooled-notifications for students, should a batch be sent periodically to students or should students simply check their marks on the system when they need and want to?
+			\item \tab [$\bullet$] Who can upload .csv files to the system? Only the lecturer or all markers?
+		\end{description}
+		\vspace{0.3cm}
+		\textbf{Requirements inconsistencies}\\
+		The following inconsistencies where identified in the requirements:
+		\begin{description}			
+			\item \tab [$\bullet$] TA’s and Tutors can alter student marks by providing reasons when they do so. The client has indicated that Lecturers can decide on the privileges assigned to TAs and Tutors. However, TAs and Tutors only have two core roles which define their purpose on the system; recording student marks and altering/updating studenft marks(with reason). What privileges can the Lecturer then decide on, as removing any of these roles from a TA or Tutor possibly defeats the role of a TA or Tutor on the system, which in turn possibly defeats the client’s purpose for the system, which is to have the TAs and Tutors deals with as much of the mark recording as possible.
+		\end{description}
 		\section{Glossary}
+		TA - Teaching Assistant.\\
+		HOD - Head of Department.\\
+		COS - Computer Science.\\
+		COS301 - Software Engineering module.\\
+		Auto Marking - Marking is done by a third party application, without any human insight.\\
+		Markers - Lect-rers, Tutors and Teaching Assistants.\\
+		SOAP - Simple Object Access Protocol.\\
+		Audit log - A log keeping track of all updates and modifications to marks and the system itself.\\
+		Android - Operating System used on smartphones designed by Google.\\
+		Fitchfork - automated marking system to mark a practical assignment.\\
+		Locking of a mark sheet - prevents any marks to be edited or added on a practical. 
 \end{document}
