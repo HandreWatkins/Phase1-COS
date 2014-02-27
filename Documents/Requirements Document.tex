@@ -1,0 +1,363 @@
+\documentclass[12pt, a4paper]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[normalem]{ulem}
+
+\newcommand{\tab}[1]{\hspace{.05\textwidth}\rlap{#1}}
+\newcommand{\dtab}[1]{\hspace{.1\textwidth}\rlap{#1}}
+
+\evensidemargin -0.04cm  % same as oddsidemargin but for left-hand pages
+\textwidth 16.59cm
+\textheight 21.94cm 
+\parskip 7.2pt           % sets spacing between paragraphs
+\parindent 0pt		 % sets leading space for paragraphs
+
+\begin{document}         
+	\begin{titlepage}
+		\begin{center}
+		\includegraphics[width=300px]{Logo_University_of_Pretoria.PNG}\\*
+		\vspace{3.0cm}
+		\textsc{\LARGE \bf{Requirement Specification}}
+
+		\textsc{\Large CS Marking System (Mini-Project)\\*[0.5cm]}
+
+		%Authors
+			Pieter le Roux (10454862)\\
+			Chistopher Moodley (10457489)\\
+			Collen Mphabantshi (10404687)\\
+			Bernhard M\"uller (11037157)\\
+			Machocho Shika (12127877)\\
+			Gerhard Smit (12282945)\\
+			Handre Watkins (10115405)\\*[0.5cm]
+
+		%Version
+			V0.1\\*[0.5cm]
+
+		%Last Modify Date
+			{\large \today}
+
+		\end{center}
+	\end{titlepage}
+
+	%Document start
+
+	%Change log
+		\thispagestyle{empty}
+		\section*{Change log/History}
+		\begin{tabular}{| l | l | l |}
+			\hline
+			Date & Version & Description \\
+			\hline
+			20 February 2014 & V0.1 & Skeleton of document \\
+			\hline
+			20 February 2014 & V0.2 & Section 1 \\
+			\hline
+			20 February 2014 & V0.3 &  \\
+			\hline
+			20 February 2014 & V0.4 &  \\
+			\hline
+		\end{tabular}
+		\newpage
+
+	%Contents
+		\thispagestyle{empty}
+		\tableofcontents
+		\newpage
+
+	%Body
+		\setcounter{page}{1}
+		\pagestyle{plain}
+		\section{Introduction}
+			This document serves to fully specify and 		outline the requirements of the marking-system in detail. The document also serves to give the client and developers a clear description and elaboration of the system to be implemented in its totality. Furthermore, this document formulates an agreement between the client, Mr Jan Kroeze from the Department of Computer Science at the University of Pretoria, and developers with regard to the system to be built.
+		\section{Vision}
+			The marking system aims to provide lecturers with the opportunity to centralize and digitalize the marking process for practical assessments carried out and evaluated. The system will also allow Teaching Assistants (TAs) and Tutors to access the system during a marking session for a module, to record the marks of students onto the system, through the use of their mobile smartphones or computers. The system will also allow the student to access his or her mark at a later stage to see how much they have acquired. The aim of this system is to remove tedious paperwork and to prevent the loss of marks.
+		\section{Background}
+			This project is due to the Computer Science department of the University of Pretoria currently facing an abundance of paper work and a potential loss of mark sheets and the opportunity of utilising the COS 301 course learning opportunity for the creation of an online marking system. The system is intended to improve the marking procedures currently in place within the Computer Science department and simplify the process of processing and distributing marks as they are released. The system also provides the COS 301 students with the opportunity to learn more with regards to the procedure used for creating, designing and developing projects for businesses while also providing the University with a potentially new system that may in future be used throughout the entire university.
+		\section{Architecture requirements}
+			\subsection{Access channel requirements}
+				\begin{description}
+					\item \tab \textsc{\bf Students – Viewing marks}
+					\begin{description}
+						\item \tab [$\bullet$]Access to marks through either the web interface, browser clients, 
+						\item \tab [$\bullet$] or through the application as mobile client.
+						\item \tab [$\bullet$] Need to be registered for the course.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Students – Viewing marks}
+					\begin{description}
+						\item \tab [$\bullet$]Access to marks through either the web interface, browser clients, 
+						\item \tab [$\bullet$] or through the application as mobile client.
+						\item \tab [$\bullet$] Need to be registered for the course.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Tutors/TA – Entering/Modifying marks}
+					\begin{description}
+						\item \tab [$\bullet$] Through the through either the web interface, browser clients,
+						\item \tab [$\bullet$] or through the application as mobile client.
+						\item \tab [$\bullet$] Need to be assigned as a TA/Tutor on the system.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Administators}
+					\begin{description}
+						\item \tab [$\bullet$] Through the web interface as browser as RESTful web clients.
+						\item \tab [$\bullet$] Must have authority
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Database Administrators}
+					\begin{description}
+						\item \tab [$\bullet$] Through an SQL back-end.
+						\item \tab [$\bullet$] Requires credentials.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Mobile application and Web interface (Presentation Tier)}
+					\begin{description}
+						\item \tab [$\bullet$] Will use the CS server as the Logic-Tier.
+						\item \tab [$\bullet$] Will connect via Wi-Fi or Ethernet.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf The CS server}
+					\begin{description}
+						\item \tab [$\bullet$]Will use the CS Database as well as the university’s student database as the Data-Tier
+					\end{description}
+				\end{description}
+			\subsection{Quality requirements}
+				\begin{description}
+					\item \tab \textsc{\bf Performance}
+					\begin{description}
+						\item \tab [$\bullet$] The system must retrieve and update information in real time.
+						\item \tab [$\bullet$] The mobile application is lightweight and will require minimal hardware resources paired to an android operating system, it will not be dependent on using a newer, more powerful device
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Reliability}
+					\begin{description}
+						\item \tab [$\bullet$] If the system goes off-line or the mobile device cannot maintain a connection after a marking sheet has been opened, marking must still be possible, all changes will be stored locally on the device with the use of time stamps and later synced when a connection is made.
+						\item \tab [$\bullet$] The system will not be functional whilst the server is down for maintenance.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Scalability}
+					\begin{description}
+						\item \tab [$\bullet$] The system must scale in terms of the number of clients, both web and mobile application, concurrently using the system and should cater for all students and staff.
+						\item \tab [$\bullet$] Performance, reliability, audibility and usability must not be dependent on the number of users on the system.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Security}
+					\begin{description}
+						\item \tab [$\bullet$] The system’s functions will be limited to respected classes of users, with authentication by means of a username and password.
+						\item \tab [$\bullet$] Without the system approving credentials, the user will not be able to access delicate functions of the system such as a marking sheet or an audit log.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Flexibility}
+					\begin{description}
+						\item \tab [$\bullet$] The system must be accessible from either a web or mobile application interface.
+						\item \tab [$\bullet$] The web interface must not be dependent on the type of browser or operating system for full functionality.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Maintainability}
+					\begin{description}
+						\item \tab [$\bullet$] The user must be able to effortlessly upgrade their mobile application to a newer version from the application itself.
+						\item \tab [$\bullet$] The efficiency of the system must be testable with simulations.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Auditability / Monitorability}
+					\begin{description}
+						\item \tab [$\bullet$] All modifications of data on the system must be recorded in an audit log.
+						\item \tab [$\bullet$] Nobody has the authority to modify the audit logs.
+						\item \tab [$\bullet$] Only the relevant HOD has the authority to access the audit log if needed.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Integrability}
+					\begin{description}
+						\item \tab [$\bullet$] Each of the layers must integrate seamlessly with each other and not be dependent on regular human attention to function.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Cost}
+					\begin{description}
+						\item \tab [$\bullet$] The cost of the mobile application and using the web interface must be free.
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{\bf Usability}
+					\begin{description}
+						\item \tab [$\bullet$] Both the web and mobile application interfaces must be simple, straight forward and self-explanatory with on screen guidance.
+					\end{description}
+				\end{description}
+			\subsection{Integration requirements}
+			\subsection{Architecture requirements}		
+		\section{Functional requirements}
+			\subsection{Introduction}
+			The system will require the user to be a Student, Teaching Assistant, Lecturer or HOD at the Department of Computer Science at the University of Pretoria. It will allow the students to review their progress of marks obtained from practical assignments and progress marks of the semester as well. The Teaching Assistants will be allowed to mark the students during a practical and upload the marks and then to be added to the student’s mark list, the marks are also editable by the TA provided the mark sheet is not locked by the Lecturer. The Lecturer will be able to set up a practical and mark sheet that can be edited during the allocated time of the practical, the Lecturer will be able to review the student’s submissions and the marks and make changes where it is required. The HOD will be able to add and remove Lecturers from modules provided they are employed at the Department of Computer Science; he/she will have access to any module and review the content of any practical. Any changes made will be updated to the audit log.
+			\subsection{Scope and Limitations/Exclusions}
+				\textsc{\bf Scope}\\
+					The scope of the Marking System project can be encapsulated as a solution that allows the users of the system to:
+					\begin{enumerate}
+						\item Record the practical assignments of the students.
+						\item To view the marks of the practical assignments at a later stage.
+						\item Keep all the marks on a centralized database.
+					\end{enumerate}
+					The system shall be designed primarily for use by heads of departments, lecturers, teaching assistants, tutors, and students for the core and sole purpose of viewing, inputting and modifying student marks in a centralized environment.
+
+				\textsc{\bf Exclusions}
+					\begin{description}
+						\item The following exclusions are made explicit:
+						\begin{description}
+							\item \tab [$\bullet$] The system does not allow for assessments to be uploaded onto the system for auto marking.
+							\item \tab [$\bullet$] The system strictly allows for mark-inputting by markers.
+						\end{description}
+ 					\end{description}
+				\textsc{\bf Limitations}
+					\begin{description}
+						\item The following limitations are made explicit:
+						\begin{description}	
+							\item \tab [$\bullet$] The HOD cannot add lecturers not employed by the university to the system.	
+							\item \tab [$\bullet$] Lecturers cannot add individuals not registered or employed by the university on the system.	
+							\item \tab [$\bullet$] The lecturer cannot add students not registered with the university to the system.	
+							\item \tab [$\bullet$] Lecturers cannot view module reports for modules they do not lecture.
+						\end{description}					
+						\item Use-Case Diagram
+                		\item \includegraphics[width=350pt]{ScopeDiagram}
+                	\end{description}
+			\subsection{Required functionality}
+			\subsection{Use case prioritisation}
+				\textsc{\bf Critical}
+				\begin{description}
+					\item \tab [$\bullet$] System runs on all web browser platforms.
+				Application runs on android.
+					\item \tab [$\bullet$] All marks are stored on a centralized database; no data is stored on any other nodes.
+					\item \tab [$\bullet$] Audit log cannot be edited at all.
+					\item \tab [$\bullet$] SOAP interface.
+				\end{description}
+				\textsc{\bf Important}
+				\begin{description}
+					\item \tab [$\bullet$] TAs can edit and add marks during practical sessions.
+					\item \tab [$\bullet$] Lectures can set up a lock for mark sheets.
+					\item \tab [$\bullet$] Students can only view their marks after the practical.
+					\item \tab [$\bullet$] Should be an audit log for every change and action done.
+					\item \tab [$\bullet$] Students can only be marked by the TA assigned to them.
+					\item \tab [$\bullet$] If signal is lost while trying to update marks, should be saved by the browser temporarily till signal is restored.
+					\item \tab [$\bullet$] User must be logged in to access.
+					\item \tab [$\bullet$] Daily batch to the audit log to record what was changed.
+					\item \tab [$\bullet$] Progression and individual practical session marks.
+					\item \tab [$\bullet$] Reason for editing marks.
+					\item \tab [$\bullet$] Report system, display of graphs.
+					\item \tab [$\bullet$] Fitchfork marks exported.
+					\item \tab [$\bullet$] Automatically decide the best set of marks.
+					\item \tab [$\bullet$] Search for individual students.
+					\item \tab [$\bullet$] Journal of audit log.
+				\end{description}
+				\textsc{\bf Nice to have}
+				\begin{description}
+					\item \tab [$\bullet$] Kick user out for inactivity.
+					\item \tab [$\bullet$] When marks are edited after practical lectures are emailed about changes.
+					\item \tab [$\bullet$] Specify weight of marks.
+					\item \tab [$\bullet$] Auto complete student number.
+				\end{description}
+			\subsection{Use case/Services contracts}
+			\subsection{Process specification}
+			Below are the specific process requirements needed for some of the use-cases:\\
+			\textsc{\bf Signing In}
+				\begin{description}
+					\item \tab \textsc{Summary:}
+					\begin{description}
+						\item \tab \textsc{On signing in, users will present their user id and password and the system will validate them before signing them into the system and awarding them their privileges on the system.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Requirement needed for process:}
+					\begin{description}
+						\item \tab \textsc{User id and password should be valid.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Basic Sequence:}
+					\begin{enumerate}
+						\item User enters user id and password
+						\item System validates user by checking user sign in details against the database.
+						\item If the user is valid, sign the user into the system and 		display the appropriate user interface. If the user is invalid, reject sign in attempt and request user to re-attempt sign in or exit the application
+					\end{enumerate}
+					\includegraphics[keepaspectratio=true]{BasicSequence}
+				\end{description}
+			\textsc{\bf Adding Lecturer to the system}
+				\begin{description}
+					\item \tab \textsc{Summary:}
+					\begin{description}
+						\item \tab \textsc{The HOD shall be able to add a lecturer to the system, however this lecturer has to be a valid lecturer at the university. }
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Requirement needed for process:}
+					\begin{description}
+						\item \tab \textsc{Lecturer should be valid lecture at the university.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Basic Sequence:}
+					\begin{enumerate}
+						\item HOD will input lecturer id and details.
+		 				\item System will confirm lecturer against university database.
+						\item If lecturer is valid on university database, lecturer is added to the system along with his/her module. If the lecturer is invalid, the HOD can either re-attempt or quit the process.
+					\end{enumerate}
+					\includegraphics[keepaspectratio=true]{BasicSequence2}
+				\end{description}
+				\textsc{\bf Adding TA/Tutor to the system}
+				\begin{description}
+					\item \tab \textsc{Summary:}
+					\begin{description}
+						\item \tab \textsc{Lecturers shall be able to add TAs and Tutors to the system. However these TAs and Tutors need to be either valid students or lecturers (or employees) at the university}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Requirement needed for process:}
+					\begin{description}
+						\item \tab \textsc{TA/Tutor is a valid student or lecturer (or employee) at the university.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Basic Sequence:}
+					\begin{enumerate}
+						\item Lecturer attempts to add potential TA/Tutor to the system.
+		 				\item System validates potential TA/Tutor against university student and employee database.
+						\item If potential TA/Tutor exists on the university database, TA/Tutor is added to the system. If TA/Tutor does not exist on the database, the Lecturer may either re-attempt or quit the process.
+					\end{enumerate}
+					\includegraphics[keepaspectratio=true]{BasicSequence3}
+				\end{description}
+				\textsc{\bf Locking and finalizing mark-sheet}
+				\begin{description}
+					\item \tab \textsc{Summary:}
+					\begin{description}
+						\item \tab \textsc{Lecturers shall be able to lock and finalize mark sheets. However, this process is dependent on the actual marking session being completed. Hence the lecturer should not be able to lock a mark sheet while a marking session is in progress.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Requirement needed for process:}
+					\begin{description}
+						\item \tab \textsc{Marking session should be complete.}
+					\end{description}
+				\end{description}
+				\begin{description}
+					\item \tab \textsc{Basic Sequence:}
+					\begin{enumerate}
+						\item Lecturer attempts to lock mark-sheet.
+		 				\item If marking session is complete, mark-sheet is locked. If marking session in not complete, mark-sheet lock attempt fails, and lecturer may re-attempt until marking session is complete.
+					\end{enumerate}
+					\includegraphics[keepaspectratio=true]{BasicSequence4}
+				\end{description}
+			\subsection{Domain Objects}
+		\section{Open Issues}
+		\section{Glossary}
+\end{document}
